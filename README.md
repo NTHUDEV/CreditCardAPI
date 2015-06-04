@@ -1,3 +1,3 @@
-This is homework for Service Security. This service will validate, encrypt, and even hash credit cards. Pretty incredible for 6 weeks of class. Our wonderful api is located here:
+Credit Card API developed by Enigma Manufacturing. 2015.
 
-http://enigmamfg-cc-api.herokuapp.com/
+API available at http://kapianapi.herokuapp.com/
