@@ -12,11 +12,11 @@ gem 'rbnacl-libsodium'
 gem 'config_env'
 gem 'protected_attributes'
 gem 'jwt'
+gem 'tux'
+gem 'hirb'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'tux'
-  gem 'hirb'
 end
 
 group :test do

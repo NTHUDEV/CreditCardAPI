@@ -2,4 +2,5 @@
 # Replace [*] with credentials/keys/etc
 config_env do
   set 'DB_KEY', "[database encryption key]"
+  set 'WEB_PUB_KEY', "[WEB APP PUBLIC KEY]"
 end

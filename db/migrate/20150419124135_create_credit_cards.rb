@@ -7,6 +7,7 @@ class CreateCreditCards < ActiveRecord::Migration
       t.string :expiration_date
       t.string :credit_network
       t.timestamps null: false
+      t.integer :user_id
     end
   end
 end
