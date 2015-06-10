@@ -1,7 +1,7 @@
 
 require 'rbnacl/libsodium'
 require 'jwt'
-require 'Base64'
+require 'base64'
 
 module KapianHelper
 
