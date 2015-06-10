@@ -57,8 +57,8 @@ post '/api/v1/credit_card' do
     halt 400, "Whoa! Did you made a mistake or are you trying to trick the system?" unless creditcard.validate_checksum
     creditcard.save
     halt 201, "Welcome to the wonderful family of Enigma Mfg. We shall splurge on fancy equipment for our office with your credit card."
-  #rescue
-  #  halt 410, "I'm sorry Dave, I'm afraid I can't do that. -HAL9000"
+  rescue
+    halt 410, "I'm sorry Dave, I'm afraid I can't do that. -HAL9000"
   end
 end
 
