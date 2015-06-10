@@ -62,4 +62,8 @@ post '/api/v1/credit_card' do
   end
 end
 
+get '/see_auth' do
+  env['HTTP_AUTHORIZATION'].to_s
+
+end
 end
