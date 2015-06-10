@@ -62,4 +62,7 @@ post '/api/v1/credit_card' do
   end
 end
 
+get '/web_pub' do
+  ENV['WEB_PUB_KEY']
+end
 end
