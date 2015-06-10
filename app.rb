@@ -38,8 +38,8 @@ end
 get '/api/v1/credit_card' do
   begin
     content_type :json
-    halt 401, 'Unauthorized' unless authenticate(env['HTTP_AUTHORIZATION'])
-    halt 401, 'Unauthorized' unless @user_id == params[:user_id]
+    halt 401, 'Unauthorized, info' unless authenticate(env['HTTP_AUTHORIZATION'])
+    halt 401, 'Unauthorized, user' unless @user_id == params[:user_id].to_i
     halt 200, CreditCard.where(user_id: params[:user_id]).to_json
 rescue Exception => e
   halt 500, "All these moments will be lost in time like tears in the rain. -Roy Batty. Please punch your app dev in the face and show this #{e}."
@@ -49,8 +49,8 @@ end
 post '/api/v1/credit_card' do
   begin
     content_type :json
-    halt 401, 'Unauthorized, no info.' unless authenticate(env['HTTP_AUTHORIZATION'])
-    halt 401, 'Unauthorized, user does not match' unless @user_id == params[:user_id].to_i
+    halt 401, 'Unauthorized, info.' unless authenticate(env['HTTP_AUTHORIZATION'])
+    halt 401, 'Unauthorized, user' unless @user_id == params[:user_id].to_i
     request_json = request.body.read
     req = JSON.parse(request_json)
     creditcard = CreditCard.new(:number => req['card_number'].to_s,:expiration_date => req['expiration_date'].to_s,:owner => req['owner'].to_s,:credit_network => req['credit_network'].to_s, :user_id => @user_id)
