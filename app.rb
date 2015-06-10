@@ -61,8 +61,4 @@ post '/api/v1/credit_card' do
     halt 410, "I'm sorry Dave, I'm afraid I can't do that. -HAL9000"
   end
 end
-
-get '/web_pub' do
-  ENV['WEB_PUB_KEY']
-end
 end
