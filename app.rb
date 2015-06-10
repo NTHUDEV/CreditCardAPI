@@ -50,9 +50,9 @@ post '/api/v1/credit_card' do
   begin
     content_type :json
     halt 401, 'Unauthorized, no info.' unless authenticate(env['HTTP_AUTHORIZATION'])
+    halt 401, 'Unauthorized, user does not match' unless @user_id == params[:user_id]
     request_json = request.body.read
     req = JSON.parse(request_json)
-    halt 401, 'Unauthorized, user does not match' unless @user_id == params[:user_id]
     creditcard = CreditCard.new(:number => req['card_number'].to_s,:expiration_date => req['expiration_date'].to_s,:owner => req['owner'].to_s,:credit_network => req['credit_network'].to_s, :user_id => @user_id)
     halt 400, "Whoa! Did you made a mistake or are you trying to trick the system?" unless creditcard.validate_checksum
     creditcard.save
@@ -62,8 +62,4 @@ post '/api/v1/credit_card' do
   end
 end
 
-get '/see_auth' do
-  env['HTTP_AUTHORIZATION'].to_s
-
-end
 end
