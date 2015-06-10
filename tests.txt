@@ -1,4 +1,12 @@
 curl -X POST -d "{\"card_number\":\"5192234226081802\",\"expiration_date\":\"2017-04-19\",\"owner\":\"Cheng-Yu Hsu\",\"credit_network\":\"MasterCard\"}" http://127.0.0.1:9292/api/v1/credit_card
 curl -X POST -d "{\"card_number\":\"4565419325015022\",\"expiration_date\":\"2015-09-06\",\"owner\":\"Pedro Lopez\",\"credit_network\":\"Visa\"}" http://127.0.0.1:9292/api/v1/credit_card
 curl -X POST -d "{\"card_number\":\"377748449898123\",\"expiration_date\":\"2020-12-05\",\"owner\":\"Arnold Stallone\",\"credit_network\":\"American Express\"}" http://127.0.0.1:9292/api/v1/credit_card
-curl -X POST -d "{\"card_number\":\"366698765643490\",\"expiration_date\":\"2025-10-23\",\"owner\":\"Rob Zombie\",\"credit_network\":\"Diners Club\"}" http://127.0.0.1:9292/api/v1/credit_card
+curl -X POST -d "{\"card_number\":\"4213330019615471\",\"expiration_date\":\"2001-01-01\",\"owner\":\"Nacho Libre\",\"credit_network\":\"JCB\"}" http://127.0.0.1:9292/api/v1/credit_card?user_id=1
+
+
+
+
+
+curl -X GET --header "Authorization: Bearer [Token]" http://localhost:9292/api/v1/credit_card/validate?card_number=4565419325015023
+
+curl -X POST --header "Authorization: Bearer [Token]" -d "{\"card_number\":\"4565419325015999\",\"expiration_date\":\"1970-10-23\",\"owner\":\"Tomas Dobly\",\"credit_network\":\"Diners Club\"}" http://localhost:9292/api/v1/credit_card
