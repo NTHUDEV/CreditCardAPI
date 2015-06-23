@@ -40,7 +40,9 @@ get '/api/v1/credit_card' do
     content_type :json
     halt 401, {status: 'Unauthorized, info'}.to_json unless authenticate(env['HTTP_AUTHORIZATION'])
     halt 401, {status: 'Unauthorized, user'}.to_json unless @user_id == params[:user_id].to_i
-    halt 200, CreditCard.where(user_id: params[:user_id]).to_json
+
+    halt 200, CreditCard.where(user_id: params[:user_id]).map {|c| {name: c.owner, number: "xxxx-"+c.number.last(4)}}.to_json
+
 rescue Exception => e
   halt 500, "All these moments will be lost in time like tears in the rain. -Roy Batty. Please punch your app dev in the face and show this #{e}."
 end
