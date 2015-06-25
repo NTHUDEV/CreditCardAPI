@@ -14,6 +14,8 @@ gem 'protected_attributes'
 gem 'jwt'
 gem 'tux'
 gem 'hirb'
+gem 'dalli'
+gem 'activesupport'
 
 group :development, :test do
   gem 'sqlite3'

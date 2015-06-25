@@ -4,3 +4,15 @@ config_env do
   set 'DB_KEY', "[database encryption key]"
   set 'WEB_PUB_KEY', "[WEB APP PUBLIC KEY]"
 end
+
+config_env :development, :test do
+  set 'MEMCACHIER_SERVERS',''
+  set 'MEMCACHIER_USERNAME',''
+  set 'MEMCACHIER_PASSWORD',''
+end
+
+config_env :production do
+  set 'MEMCACHIER_SERVERS',''
+  set 'MEMCACHIER_USERNAME',''
+  set 'MEMCACHIER_PASSWORD',''
+end
